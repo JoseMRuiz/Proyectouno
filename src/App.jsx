@@ -11,6 +11,7 @@ import VistaDatos from './components/VistaDatos'
 
 
 
+
 function App() {
 
 
@@ -25,7 +26,6 @@ return (
             <Route path='VistaDatos' element={<VistaDatos/>}/>
           </Routes>
         </BrowserRouter>
-        
     </div>
         
 )

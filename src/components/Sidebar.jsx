@@ -50,11 +50,10 @@ const SidebarContext = createContext()
         {expanded ? "Inicio": <none/>}
         </button>
         </Link>
-        <Link to="/VistaDatos">
         <button 
             className="p-1.5 mt-16 mb-16 rounded-lg bg-gray-50 hover:bg-blue-100 ml-4"
         >
-        {expanded ? "boton3" : <none/>}</button></Link>
+        {expanded ? "boton3" : <none/>}</button>
         
         <Link to="/Loginn"><button 
             className="p-1.5 mt-16 mb-16 rounded-lg bg-gray-50 hover:bg-blue-100 ml-4"
