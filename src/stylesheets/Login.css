@@ -8,7 +8,7 @@
 
 
 .container {
-    min-width:100%;
+    min-width: 100%;
     background-image: url('../images/OIG4.png');
     background-size: 120% 120%;
     background-repeat: no-repeat;
@@ -22,11 +22,7 @@
 
 .main {
     margin-left: 36%;
-
     padding-top: 18rem;
-
-    padding-top: 20rem;
-
     display: flex;
     flex-direction: column;
     height: 93%;
