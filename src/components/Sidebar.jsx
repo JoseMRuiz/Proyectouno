@@ -12,7 +12,7 @@ const SidebarContext = createContext()
     
     return (
         <div className="h-screen display:block">
-        <nav className="h-screen flex flex-col bg-white border-r shadow-sm">
+        <nav className=" flex flex-col bg-white border-r shadow-sm">
                 <div className="flex">
                 <img
             src="/src/images/descarga.png"

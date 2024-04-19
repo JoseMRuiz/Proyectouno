@@ -8,13 +8,18 @@ const Form = () => {
     const handleSelectChange = (e) => {
         setSelectedOption(e.target.value);
         console.log(e.target.value)
-    };
+    }
+    const [cardCount, setCardCount] = useState(0);
+
+const handleSolicitarClick = () => {
+    setCardCount(prevCount => prevCount + 1);
+};
     return (
         
-        <div className='flex  h-full w-full bg-slate-400 '>
-            <Sidebar/>
-            <div className='h-full w-4/6 ml-32 p-2 mr-10 bg-white rounded-xl  self-start  '>
-                <div className='flex flex-col p-4'>
+        <div className='flex h-screen  w-full bg-slate-400 '>
+            <Sidebar />
+            <div className= 'flex flex-col h-full w-4/6 ml-32 p-2 mr-10 rounded-xl  self-start  '>
+                <div className='flex flex-col p-4 bg-white rounded-xl'>
                     <input
                         className='p-4 mb-4'
                         type='text'
@@ -32,18 +37,35 @@ const Form = () => {
                         <input className='p-4 mb-4' type='File' placeholder='Nombre' />
                     ) : (
                         <div></div>
-                    )}
-                    <button class="bg-red-300 hover:bg-red-500 text-white font-bold self-center w-32 py-1 px-3 rounded-full shadow-lg hover:text-white shadow-white transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce">
+                    )}  <button class="bg-red-300 hover:bg-red-500 text-white font-bold self-center w-32 py-1 px-3 rounded-full shadow-lg hover:text-white shadow-white transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce"
+                                onClick={handleSolicitarClick}
+                    >
                         solicitar
-                    </button>
-                    
+                    </button>  
+                    </div>
+                    <div className="flex flex-wrap justify-center overflow-y-auto">
+    {Array.from({ length: cardCount }).map((_, index) => (
+        <div key={index} className="max-w-sm rounded overflow-y-auto shadow-lg mx-2 my-2">
+        <div className="mt-8">
+            <div className="flex flex-wrap justify-center">
+                <div className="max-w-sm rounded overflow-y-auto shadow-lg mx-2 my-2">
+                    <h1 className='ml-10'>hola aca va la info del card</h1>
+                    <div className="px-6 py-4">
+                        <div className="font-bold text-xl mb-2">solicitud nro</div>
+                        <p className="text-gray-700 text-base">
+                            pequeña descripcion de la solicitud
+                        </p>
+                    </div>
                 </div>
-                <div className='flex flex-col'>
-                    <h1>hola</h1>
-                </div>
+                
             </div>
-            
         </div>
+        </div>
+    ))}
+</div>
+
+    </div>
+</div>
         
     )
 }
