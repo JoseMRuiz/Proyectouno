@@ -5,7 +5,7 @@ const Inicio = () => {
     return (
 
         <>
-            <div className='flex w-full gap-2'>
+            <div className='flex w-full gap-2 p-4'>
                 <div className='w-full h-1/2  max-h-full'>
                     <div className='bg-slate-200 w-full h-full rounded-xl p-2 shadow-lg flex flex-col justify-center items-center'>
                         <img src="/src/images/form.png" className='w-80 rounded-xl ' />
