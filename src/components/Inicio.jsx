@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const Inicio = () => {
     return (
-
         <>
             <div className='flex w-full gap-2 p-4'>
                 <div className='w-full h-1/2  max-h-full'>
