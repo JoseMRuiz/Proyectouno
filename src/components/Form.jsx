@@ -11,9 +11,10 @@ const Form = () => {
     }
     const [cardCount, setCardCount] = useState(0);
 
-const handleSolicitarClick = () => {
-    setCardCount(prevCount => prevCount + 1);
-};
+    const handleSolicitarClick = () => {
+        setCardCount(prevCount => prevCount + 1);
+    };
+    const isSolicitudAceptada = true; 
     return (
         
         <div className='flex h-screen  w-full bg-slate-400 '>
@@ -55,6 +56,12 @@ const handleSolicitarClick = () => {
                         <p className="text-gray-700 text-base">
                             pequeña descripcion de la solicitud
                         </p>
+                        <h1 className={`bg-slate-50 ${isSolicitudAceptada ? 'hover:bg-green-600' : 'hover:bg-red-600'}`}>
+                            Estado de la solicitud
+                        </h1>
+
+
+                        
                     </div>
                 </div>
                 
