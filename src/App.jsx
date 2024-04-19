@@ -8,6 +8,7 @@ import { BrowserRouter, Routes , Route } from 'react-router-dom'
 import Pantalla_postLogin from './components/Pantalla_postLogin'
 import Form from './components/Form'
 import VistaDatos from './components/VistaDatos'
+import Usuario from './components/Usuario'
 
 
 
@@ -24,6 +25,7 @@ return (
             <Route path='Pantalla_postLogin' element={<Pantalla_postLogin/>}/>
             <Route path='Form' element={<Form/>}/>
             <Route path='VistaDatos' element={<VistaDatos/>}/>
+            <Route path='Usuario' element={<Usuario/>}/>
           </Routes>
         </BrowserRouter>
     </div>

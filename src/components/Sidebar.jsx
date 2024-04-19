@@ -50,13 +50,21 @@ const SidebarContext = createContext()
         {expanded ? "Inicio": <none/>}
         </button>
         </Link>
+        <Link to="/VistaDatos">
         <button 
             className="p-1.5 mt-16 mb-16 rounded-lg bg-gray-50 hover:bg-blue-100 ml-4"
         >
-        {expanded ? "boton3" : <none/>}</button>
+        {expanded ? "boton3" : <none/>}</button></Link>
         
-        <Link to="/Loginn"><button 
+        <Link to="/Usuario"><button 
             className="p-1.5 mt-16 mb-16 rounded-lg bg-gray-50 hover:bg-blue-100 ml-4"
+            
+        >
+        {expanded ? "vista de usuario": <none/>}
+        </button>
+        </Link>
+        <Link to="/Loginn"><button 
+            className="p-1.5  rounded-lg bg-gray-50 hover:bg-blue-100 ml-4"
             
         >
         {expanded ? "cerrar sesion": <none/>}
@@ -72,7 +80,7 @@ const SidebarContext = createContext()
 
         </SidebarContext.Provider>
 
-        <div className="border-t flex p-3 mt-8">
+        <div className="border-t flex p-3 ">
             <img
                 src="/src/images/descarga1.jpg"
                 alt=""
