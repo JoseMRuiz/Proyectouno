@@ -5,8 +5,8 @@ import Dashboard1 from './Dashboard1'
 const Pantalla_postLogin = () => {
     return (
         <div className='flex h-full w-full'>
-            <Sidebar/>
-            <Dashboard1/>
+            <Sidebar />
+            <Dashboard1 />
         </div>
     )
 }
