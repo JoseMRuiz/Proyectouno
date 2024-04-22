@@ -9,14 +9,15 @@ import { store } from './store/store'
 import { useAuth } from './hooks/useAuth'
 
 function App() {
-  const { status } = useAuth();
+  const status = "authenticated"
+  //const { status } = useAuth();
   // const authStatus = 'not-authenticated' // "authenticated" // "checking" 
   return (
     <div className='h-screen w-full'>
       <BrowserRouter>
         <Routes>
           {
-            (status === 'not-authenticated' || status === 'checking')
+            (status === 'no-authenticated' || status === 'checking')
 
               ? (
                 <>
@@ -30,19 +31,20 @@ function App() {
                 <>
                   <Route path='/Pantalla_postLogin' element={<Pantalla_postLogin />} />
 
-                  <Route path="/*" element={<Navigate to="/Pantalla_postLogin" />} />
+                  <Route path="/*" element={<Navigate to="/Pantalla_postLogin" />} />  
+                  <Route path='Form' element={<Form />} />
+                  <Route path='VistaDatos' element={<VistaDatos />} />
+                  <Route path='Usuario' element={<Usuario />} />
                 </>
               )
           }
 
         </Routes>
         {/* <Routes>
-            <Route path="/" element={<Pantalla_postLogin />} />
-            <Route path='Loginn' element={<Loginn />} />
-            <Route path='Pantalla_postLogin' element={<Pantalla_postLogin />} />
-            <Route path='Form' element={<Form />} />
-            <Route path='VistaDatos' element={<VistaDatos />} />
-            <Route path='Usuario' element={<Usuario />} />
+            
+            
+  
+  
           </Routes> */}
       </BrowserRouter>
     </div >
