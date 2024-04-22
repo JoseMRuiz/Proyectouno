@@ -1,12 +1,12 @@
 import React from 'react'
 import Sidebar from './Sidebar'
-import Dashboard1 from './Dashboard1'
+import Inicio from './Inicio'
 
 const Pantalla_postLogin = () => {
     return (
         <div className='flex h-full w-full'>
             <Sidebar />
-            <Dashboard1 />
+            <Inicio />
         </div>
     )
 }

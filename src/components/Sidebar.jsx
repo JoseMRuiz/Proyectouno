@@ -2,7 +2,7 @@ import { MoreVertical, ChevronLast, ChevronFirst, BriefcaseMedical, TriangleAler
 import { useContext, createContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { RiBookmarkFill, RiHome2Fill, RiMailFill, RiUser3Fill, RiLogoutBoxFill } from "react-icons/ri";
-
+import { useAuth } from "../hooks/useAuth";
 
 const SidebarContext = createContext()
 
@@ -10,7 +10,11 @@ export default function Sidebar({ children }) {
     let nombre = "jose"
     let email = "josemruiz6@gmail.com"
     const [expanded, setExpanded] = useState(true)
+    const { startLogout } = useAuth()
 
+    const handleClickCerrarSesion = () => {
+        startLogout()
+    }
 
     return (
         <div className={`min-h-full transition-all duration-500${expanded ? "w-2/4" : "w-20"}`} >
@@ -55,12 +59,12 @@ export default function Sidebar({ children }) {
                             <p className={`tracking-wide ${expanded ? "w-full" : "w-0"}`}>{expanded ? 'Perfil' : ''}</p>
 
                         </Link>
-                        <Link to="/Loginn" className={`flex rounded p-2 gap-2 text-xl cursor-pointer stroke-[0.75]  stroke-neutral-400 text-neutral-950  place-items-center  hover:bg-blue-100 transition-color duration-100 ${expanded ? 'w-full' : 'w-20'}`}>
+                        <button to="/Loginn" onClick={handleClickCerrarSesion} className={`flex rounded p-2 gap-2 text-xl cursor-pointer stroke-[0.75]  stroke-neutral-400 text-neutral-950  place-items-center  hover:bg-blue-100 transition-color duration-100 ${expanded ? 'w-full' : 'w-20'}`}>
                             <RiLogoutBoxFill className={`${expanded ? "" : "w-full h-7"}`} />
                             <p className={`tracking-wide ${expanded ? "w-full" : "w-0"}`}>{expanded ? 'Cerrar sesion' : ''}</p>
 
 
-                        </Link>
+                        </button>
                     </div>
                 </ul>
 
