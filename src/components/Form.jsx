@@ -17,10 +17,10 @@ const Form = () => {
     const isSolicitudAceptada = true;
     return (
 
-        <div className='flex h-screen  w-full bg-slate-400 '>
+        <div className='flex h-screen  w-full '>
             <Sidebar />
-            <div className='flex flex-col h-full w-4/6 ml-32 p-2 mr-10 rounded-xl  self-start '>
-                <div className='flex flex-col p-4 bg-white rounded-xl'>
+            <div className='flex flex-col h-full w-4/6 ml-32 p-2 mr-10 rounded-xl  self-start  '>
+                <div className='flex flex-col p-4 bg-slate-200 rounded-xl'>
                     <input
                         className='p-4 mb-4'
                         type='text'
@@ -47,8 +47,8 @@ const Form = () => {
                 <div className="flex flex-wrap justify-center overflow-y-auto">
                     {Array.from({ length: cardCount }).map((_, index) => (
                         <div key={index} className="max-w-sm rounded overflow-y-auto shadow-lg mx-2 my-2">
-                            <div className="mt-8 bg-red-500">
-                                <div className="flex flex-wrap justify-center bg-green-500">
+                            <div className="mt-8">
+                                <div className="flex flex-wrap justify-center">
                                     <div className="max-w-sm rounded overflow-y-auto shadow-lg mx-2 my-2">
                                         <h1 className='ml-10'>hola aca va la info del card</h1>
                                         <div className="px-6 py-4">
