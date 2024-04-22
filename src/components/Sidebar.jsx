@@ -17,12 +17,12 @@ export default function Sidebar({ children }) {
     }
 
     return (
-        <div className={`min-h-full transition-all duration-500${expanded ? "w-2/4" : "w-20"}`} >
+        <div className={`min-h-full bg-slate-100 transition-all duration-500${expanded ? "w-2/4" : "w-20"}`} >
             <div className="flex flex-col border-r shadow-sm  h-full p-2">
                 <div className="flex justify-around p-2">
                     <img
                         src="/src/images/descarga.png"
-                        className={`overflow-hidden transition-all rounded-lg ${expanded ? "w-40" : "w-0"
+                        className={` p-2 overflow-hidden transition-all rounded-lg ${expanded ? "w-40" : "w-0"
                             }`}
                         alt=""
                     />
