@@ -9,8 +9,8 @@ import { store } from './store/store'
 import { useAuth } from './hooks/useAuth'
 
 function App() {
-  const status = "authenticated"
-  //const { status } = useAuth();
+  // const status = "authenticated"
+  const { status } = useAuth();
   // const authStatus = 'not-authenticated' // "authenticated" // "checking" 
   return (
     <div className='h-screen w-full'>
@@ -29,9 +29,9 @@ function App() {
 
               : (
                 <>
-                  <Route path='/Pantalla_postLogin' element={<Pantalla_postLogin />} />
+                  <Route path='/Home' element={<Pantalla_postLogin />} />
 
-                  <Route path="/*" element={<Navigate to="/Pantalla_postLogin" />} />  
+                  <Route path="/*" element={<Navigate to="/Home" />} />
                   <Route path='Form' element={<Form />} />
                   <Route path='VistaDatos' element={<VistaDatos />} />
                   <Route path='Usuario' element={<Usuario />} />

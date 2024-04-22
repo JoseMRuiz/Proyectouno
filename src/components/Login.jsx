@@ -30,7 +30,7 @@ function Loginn() {
     const loginSubmit = async (event) => {
         console.log(loginEmail, loginPassword)
         event.preventDefault();
-        startLogin({ email: loginEmail, password: loginPassword })
+        await startLogin({ email: loginEmail, password: loginPassword })
     }
     return (
         <>

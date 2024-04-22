@@ -9,8 +9,13 @@ export const useAuth = () => {
     const startLogin = async ({ email, password }) => {
         dispatch(onChecking());
         try {
-            dispatch(onLogin({ email: email, password: password }))
             const data = await authApi.post('/auth/login', { email, password })
+            console.log(data)
+            if (data.data.ok === true) {
+                dispatch(onLogin({ email: email, password: password }))
+            }
+            //!TODO
+            //Manejar el caso: "Usuario no encontrado"
         } catch (error) {
             setTimeout(() => {
                 dispatch(onLogout('Credenciales incorrectas'));

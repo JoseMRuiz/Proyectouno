@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import logotc from '../images/logotc.png'
 import Sidebar from './Sidebar';
+import authApi from '../api/authApi';
 const Form = () => {
     const [selectedOption, setSelectedOption] = useState('');
+    const [dni, setDni] = useState(null);
     const [showInput, setShowInput] = useState(false);
 
     const handleSelectChange = (e) => {
@@ -11,8 +13,16 @@ const Form = () => {
     }
     const [cardCount, setCardCount] = useState(0);
 
-    const handleSolicitarClick = () => {
+    const handleSolicitarClick = async () => {
         setCardCount(prevCount => prevCount + 1);
+        try {
+            const response = await authApi.post('/solicitudes/', {
+                dni: dni, categoriaSolicitud: selectedOption
+            })
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+        }
     };
     const isSolicitudAceptada = true;
     return (
@@ -25,6 +35,8 @@ const Form = () => {
                         className='p-4 mb-4'
                         type='text'
                         placeholder='Dni'
+                        value={dni}
+                        onChange={e => setDni(e.target.value)}
                     />
                     <select className='p-4 mb-4' onChange={handleSelectChange}>
                         <option value="">Seleccione una opción</option>
