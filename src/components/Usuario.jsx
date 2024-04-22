@@ -10,11 +10,11 @@ const Usuario = () => {
                 className='h-screen'
 
             />
-            <div className='flex w-full bg-slate-600 p-2'>
+            <div className='flex w-full bg-slate-400 p-2'>
 
                 <div className='mr-14 border '>
-                    <h1 className='w-64  text-4xl self-center '>USUARIO NRO</h1>
-                    <User className='mt-10 w-64 size-32 ' />
+                    <h1 className='w-64 ml-10 text-4xl self-center '>USUARIO NRO</h1>
+                    <User className='mt-10 ml-10 w-64 size-32 ' />
                     <input type="file" className='mt-10' />
                 </div>
                 <div className='flex flex-col mr-10'>
@@ -38,7 +38,7 @@ const Usuario = () => {
                 </div>
 
 
-                <img src={logotc} className='w-1/2 absolute bottom-12 end-60' />
+                <img src={logotc} className='w-1/2 absolute bottom-12 end-32' />
             </div>
         </div>
     )

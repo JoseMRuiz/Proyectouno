@@ -17,7 +17,7 @@ const Form = () => {
     const isSolicitudAceptada = true;
     return (
 
-        <div className='flex h-screen  w-full '>
+        <div className='flex h-screen bg-gradient-to-r from-blue-800 via-blue-200 to-cyan-500  w-full '>
             <Sidebar />
             <div className='flex flex-col h-full w-4/6 ml-32 p-2 mr-10 rounded-xl  self-start  '>
                 <div className='flex flex-col p-4 bg-slate-200 rounded-xl'>
@@ -46,7 +46,7 @@ const Form = () => {
                 </div>
                 <div className="flex flex-wrap justify-center overflow-y-auto">
                     {Array.from({ length: cardCount }).map((_, index) => (
-                        <div key={index} className="max-w-sm rounded overflow-y-auto shadow-lg mx-2 my-2">
+                        <div key={index} className="max-w-sm rounded overflow-y-auto bg-slate-400 shadow-lg mx-2 my-2">
                             <div className="mt-8">
                                 <div className="flex flex-wrap justify-center">
                                     <div className="max-w-sm rounded overflow-y-auto shadow-lg mx-2 my-2">
