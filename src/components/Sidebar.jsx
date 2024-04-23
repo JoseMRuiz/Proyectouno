@@ -3,12 +3,17 @@ import { useContext, createContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { RiBookmarkFill, RiHome2Fill, RiMailFill, RiUser3Fill, RiLogoutBoxFill } from "react-icons/ri";
 import { useAuth } from "../hooks/useAuth";
+import { useSelector } from "react-redux";
 
 const SidebarContext = createContext()
 
 export default function Sidebar({ children }) {
-    let nombre = "jose"
-    let email = "josemruiz6@gmail.com"
+    const { user } = useSelector(state => state.auth)
+    if (user.rol > 0) {
+        console.log('Admin')
+    }
+    let nombre = user.nombre
+    let email = user.email
     const [expanded, setExpanded] = useState(true)
     const { startLogout } = useAuth()
 
@@ -34,7 +39,20 @@ export default function Sidebar({ children }) {
                     </button>
                 </div>
                 <ul className="h-full  p-2">
+
                     <div className="flex flex-col gap-10 p-2 items-center overflow-y-hidden">
+                        {
+                            user && user.rol > 0 ? (
+
+                                <Link to="/VistaDatos" className={`flex rounded p-2 gap-2 text-xl cursor-pointer stroke-[0.75]  stroke-neutral-400 text-neutral-950  place-items-center  hover:bg-blue-100 transition-color duration-100 ${expanded ? 'w-full' : 'w-20'}`}>
+                                    <RiMailFill className={`${expanded ? "" : "w-full h-7"}`} />
+                                    <p className={`tracking-wide ${expanded ? "w-full" : "w-0"}`}>{expanded ? 'Solicitudes' : ''}</p>
+
+                                </Link>
+                            ) : (
+                                <h1> </h1>
+                            )
+                        }
                         <Link to="/Pantalla_postLogin" className={`flex rounded p-2 gap-2 text-xl cursor-pointer stroke-[0.75]  stroke-neutral-400 text-neutral-950  place-items-center  hover:bg-blue-100 transition-color duration-100 ${expanded ? 'w-full' : 'w-20'}`}>
                             <RiHome2Fill className={`${expanded ? "" : "w-full h-7"}`} />
                             <p className={`tracking-wide ${expanded ? "w-full" : "w-0"}`}>{expanded ? 'Inicio' : ''}</p>
@@ -48,17 +66,13 @@ export default function Sidebar({ children }) {
                                 {expanded ? "Formulario" : <none />}
                             </button> */}
                         </Link>
-                        <Link to="/VistaDatos" className={`flex rounded p-2 gap-2 text-xl cursor-pointer stroke-[0.75]  stroke-neutral-400 text-neutral-950  place-items-center  hover:bg-blue-100 transition-color duration-100 ${expanded ? 'w-full' : 'w-20'}`}>
-                            <RiMailFill className={`${expanded ? "" : "w-full h-7"}`} />
-                            <p className={`tracking-wide ${expanded ? "w-full" : "w-0"}`}>{expanded ? 'Solicitudes' : ''}</p>
-
-                        </Link>
 
                         <Link to="/Usuario" className={`flex rounded p-2 gap-2 text-xl cursor-pointer stroke-[0.75]  stroke-neutral-400 text-neutral-950  place-items-center  hover:bg-blue-100 transition-color duration-100 ${expanded ? 'w-full' : 'w-20'}`}>
                             <RiUser3Fill className={`${expanded ? "" : "w-full h-7"}`} />
                             <p className={`tracking-wide ${expanded ? "w-full" : "w-0"}`}>{expanded ? 'Perfil' : ''}</p>
 
                         </Link>
+
                         <button to="/Loginn" onClick={handleClickCerrarSesion} className={`flex rounded p-2 gap-2 text-xl cursor-pointer stroke-[0.75]  stroke-neutral-400 text-neutral-950  place-items-center  hover:bg-blue-100 transition-color duration-100 ${expanded ? 'w-full' : 'w-20'}`}>
                             <RiLogoutBoxFill className={`${expanded ? "" : "w-full h-7"}`} />
                             <p className={`tracking-wide ${expanded ? "w-full" : "w-0"}`}>{expanded ? 'Cerrar sesion' : ''}</p>

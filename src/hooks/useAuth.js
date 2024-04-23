@@ -9,10 +9,10 @@ export const useAuth = () => {
     const startLogin = async ({ email, password }) => {
         dispatch(onChecking());
         try {
-            const data = await authApi.post('/auth/login', { email, password })
+            const { data } = await authApi.post('/auth/login', { email, password })
             console.log(data)
-            if (data.data.ok === true) {
-                dispatch(onLogin({ email: email, password: password }))
+            if (data.ok === true) {
+                dispatch(onLogin({ email: data.email, password: data.clave, nombre: data.nombre, apellido: data.apellido, dni: data.dni, rol: data.rol }))
             }
             //!TODO
             //Manejar el caso: "Usuario no encontrado"

@@ -2,37 +2,41 @@ import React from 'react'
 import Sidebar from './Sidebar'
 import { User } from 'lucide-react'
 import logotc from '../images/logotc.png'
+import { useSelector } from 'react-redux'
 
 const Usuario = () => {
+    const { user } = useSelector(state => state.auth)
+
     return (
         <div className='flex h-full w-full'>
             <Sidebar
                 className='h-screen'
 
             />
-            <div className='flex w-full bg-slate-400 p-2'>
+            <div className='flex rounded-tl-lg w-full bg-slate-400 p-2 gap-4 '>
 
-                <div className='mr-14 border '>
-                    <h1 className='w-64 ml-10 text-4xl self-center '>USUARIO NRO</h1>
-                    <User className='mt-10 ml-10 w-64 size-32 ' />
-                    <input type="file" className='mt-10' />
-                </div>
-                <div className='flex flex-col mr-10'>
+                <div className='border gap-4 flex flex-col p-4 items-center'>
 
-                    <h1 className='mt-5 self-center '>nombre </h1>
-                    <input type="text" className='mb-5 rounded-lg w-96 p-2 ' disabled />
-                    <h1 className='mt-5 self-center '>telefono</h1>
-                    <input type="text" className='mb-5 rounded-lg w-96 p-2' disabled />
-                    <h1 className='mt-5  self-center'>Email</h1>
-                    <input type="text" className='mb-5 rounded-lg w-96 p-2' disabled />
+                    <h1 className='text-4xl bg-slate-300 rounded-lg p-4'>{user.dni}</h1>
+                    <User className='size-32 bg-slate-200 border rounded-full p-2' />
 
                 </div>
                 <div className='flex flex-col mr-10'>
-                    <h1 className='mt-5 self-center '>apellido</h1>
+
+                    <h1 className='mt-5 self-center '>NOMBRE </h1>
+                    <input type="text" value={user.nombre} className='mb-5 rounded-lg w-96 p-2 ' disabled />
+                    <h1 className='mt-5 self-center '>TELEFONO</h1>
                     <input type="text" className='mb-5 rounded-lg w-96 p-2' disabled />
-                    <h1 className='mt-5 self-center '>telefono de emergencia </h1>
+                    <h1 className='mt-5  self-center'>EMAIL</h1>
+                    <input type="text" value={user.email} className='mb-5 rounded-lg w-96 p-2' disabled />
+
+                </div>
+                <div className='flex flex-col mr-10'>
+                    <h1 className='mt-5 self-center '>APELLIDO</h1>
+                    <input type="text" value={user.apellido} className='mb-5 rounded-lg w-96 p-2' disabled />
+                    <h1 className='mt-5 self-center '>TELEFONO DE EMERGENCIO</h1>
                     <input type="text" className='mb-5 rounded-lg w-96 p-2' disabled />
-                    <h1 className='mt-5  self-center'>ubicacion</h1>
+                    <h1 className='mt-5  self-center'>UBICACION</h1>
                     <input type="text" className='mb-5 rounded-lg w-96 p-2' disabled />
 
                 </div>
