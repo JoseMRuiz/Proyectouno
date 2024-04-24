@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 // const { VITE_API_URL } = getEnvVariables()
-// const URL = 'https://padron-deudores-backend.onrender.com/api'
 const URL = 'http://localhost:4000/api'
 // const URL = 'http://acceso.nubecenter.com.ar:11702/api'
 

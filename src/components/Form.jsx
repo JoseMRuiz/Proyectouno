@@ -51,9 +51,9 @@ const Form = () => {
 
     return (
 
-        <div className='flex h-screen  w-full '>
+        <div className='flex h-screen w-full '>
             <Sidebar />
-            <div className='flex rounded-tl-lg bg-gradient-to-r from-blue-800 via-blue-200 to-cyan-500 flex-col h-full w-4/6 p-2  self-start w-full '>
+            <div className='flex h-full w-full rounded-tl-lg bg-gradient-to-r from-blue-800 via-blue-200 to-cyan-500 flex-col  p-2  self-start  '>
                 <div className='flex flex-col p-4 bg-slate-200 rounded-xl'>
                     <input
                         className='p-4 mb-4'
@@ -79,18 +79,19 @@ const Form = () => {
                     >
                         solicitar
                     </button>
-                </div>
-                <div className="flex flex-wrap justify-center overflow-y-auto gap-4 p-2">
+                </div> 
+                <div className="flex flex-wrap h-full w-full justify-center overflow-y-auto gap-2 p-4">
+                 
                     {
                         solicitudesByDni && solicitudesByDni.length > 0 && solicitudesByDni.map(s => (
-                            <div className="max-w-xs rounded overflow-hidden shadow-lg bg-white">
+                            <div className="flex flex-col h-1/2 w-1/4 bg-slate-200  rounded overflow-hidden shadow-xl p-4">
 
-                                <div className="px-6 py-4">
-                                    <div className="font-bold text-xl mb-2">{s.categoriaSolicitud}</div>
-                                    <p className="text-gray-700 text-base">{formatDate(s.feachaSolicitado)}</p>
+                                <div className="gap-4 mb-4">
+                                    <h1 className="font-bold text-center text-2xl underline ">{s.categoriaSolicitud}({s.idsolicitudes})</h1>
+                                    <p className="text-gray-700 text-center text-xl">{formatDate(s.feachaSolicitado)}</p>
                                 </div>
-                                <div className="px-6 py-4">
-                                    <span className={`inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 bg-slate-50 ${s.estado === 1 ? 'bg-green-300' : s.estado === 2 ? 'bg-red-600' : 'bg-slate-400'}`}>Estado de la solicitud</span>
+                                <div className="mt-auto  flex justify-center items-center">
+                                    <span className={` bg-gray-200 font-semi-bold rounded-full p-4 text-base text-black  ${s.estado === 2 ? 'bg-green-700' : s.estado === 3 ? 'bg-red-700' : 'bg-slate-500' }`}>Estado de la solicitud</span>
                                 </div>
                             </div>
                         ))

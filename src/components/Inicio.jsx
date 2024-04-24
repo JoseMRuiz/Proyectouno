@@ -17,7 +17,7 @@ const Inicio = () => {
                     <div className='bg-slate-200 w-full h-full rounded-xl p-2 shadow-lg flex flex-col justify-center items-center'>
                         <img src="/src/images/img-solicitud.jpg" className='w-80 rounded-xl ' />
                         <h5 className='text-2xl md:text-3xl font-medium'>Solicitudes Realizadas</h5>
-                        <p className='text-slate-800 text-lg '>Consulte el estado de sus solicitudes</p>
+                        <p className='text-slate-800 text-lg '>Controle las solicitudes realizadas</p>
                         <Link to="/VistaDatos"><button className='text-center p-4  mt-4 bg-blue-400 text-blue-700  rounded-lg font-semibold hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out'> Ir a Solicitudes </button></Link>
                     </div>
                 </div>
