@@ -17,7 +17,7 @@ const Usuario = () => {
 
                 <div className='border gap-4 flex flex-col p-4 items-center'>
 
-                    <h1 className='text-4xl bg-slate-300 rounded-lg p-4'>{user.dni}</h1>
+                    <h1 className='text-4xl bg-slate-300 rounded-lg p-4'><h2 className=' text-lg font-bold'>DNI</h2>{user.dni}</h1>
                     <User className='size-32 bg-slate-200 border rounded-full p-2' />
 
                 </div>
@@ -42,7 +42,7 @@ const Usuario = () => {
                 </div>
 
 
-                <img src={logotc} className='w-1/2 absolute bottom-12 end-32' />
+                <img src={logotc} className='w-1/6 absolute bottom-12 end-1/4' />
             </div>
         </div>
     )

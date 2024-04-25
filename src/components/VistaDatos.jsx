@@ -71,8 +71,8 @@ const VistaDatos = () => {
                                                     Aceptar  
                                                 </button>
                                                 <button
-                                                 className=' min-w-32 text-center bg-red-800 text-slate-600 py-2 rounded-lg font-semibold hover:bg-red-300 focus:scale-95 transition-all duration-200 ease-out'
-                                                 onClick={ () => handleDenegar(s.idsolicitudes)}
+                                                className=' min-w-32 text-center bg-red-800 text-slate-600 py-2 rounded-lg font-semibold hover:bg-red-300 focus:scale-95 transition-all duration-200 ease-out'
+                                                onClick={ () => handleDenegar(s.idsolicitudes)}
                                                 >
                                                     X
                                                 </button>

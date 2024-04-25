@@ -40,7 +40,7 @@ export default function Sidebar({ children }) {
                 </div>
                 <ul className="h-full  p-2">
 
-                    <div className="flex flex-col gap-10 p-2 items-center overflow-y-hidden">
+                    <div className="flex flex-col  gap-10 p-2 items-center overflow-y-hidden">
                         {
                             user && user.rol > 0 ? (
 
@@ -53,7 +53,7 @@ export default function Sidebar({ children }) {
                                 <h1> </h1>
                             )
                         }
-                        <Link to="/Pantalla_postLogin" className={`flex rounded p-2 gap-2 text-xl cursor-pointer stroke-[0.75]  stroke-neutral-400 text-neutral-950  place-items-center  hover:bg-blue-100 transition-color duration-100 ${expanded ? 'w-full' : 'w-20'}`}>
+                        <Link to="/Pantalla_postLogin" className={`flex rounded p-2 gap-2 text-xl cursor-pointer stroke-[0.75]   stroke-neutral-400 text-neutral-950  place-items-center  hover:bg-blue-100 transition-color duration-100 ${expanded ? 'w-full' : 'w-20'}`}>
                             <RiHome2Fill className={`${expanded ? "" : "w-full h-7"}`} />
                             <p className={`tracking-wide ${expanded ? "w-full" : "w-0"}`}>{expanded ? 'Inicio' : ''}</p>
 
