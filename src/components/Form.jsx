@@ -55,13 +55,32 @@ const Form = () => {
             <Sidebar />
             <div className='flex h-full w-full rounded-tl-lg bg-gradient-to-r from-blue-800 via-blue-200 to-cyan-500 flex-col  p-2  self-start  '>
                 <div className='flex flex-col p-4 bg-slate-200 rounded-xl'>
-                    <input
-                        className='p-4 mb-4'
-                        type='text'
-                        placeholder='Dni'
-                        value={user.dni}
-                        disabled
-                    />
+                    <h6 className=''>
+                        <span className="font-bold ">  DNI: </span>
+                        <input
+                            className='p-4 mb-4'
+                            type='text'
+                            placeholder='Dni'
+                            value={user.dni}
+                            disabled
+                        />
+                        <span className="font-bold ">Nombre y Apellido:</span>
+                        <input
+                            className='p-4 mb-4'
+                            type='text'
+                            placeholder='Dni'
+                            value={user.nombre}
+                            disabled
+                        />
+                        <span className="font-bold ">Legajo:</span>
+                        <input
+                            className='p-4 mb-4'
+                            type='text'
+                            placeholder='Dni'
+                            value={user.dni}
+                            disabled
+                        />
+                    </h6>
                     <select className='p-4 mb-4' onChange={handleSelectChange}>
                         <option value="">Seleccione una opción</option>
                         <option value="carpeta médica">Carpeta médica</option>
@@ -74,24 +93,28 @@ const Form = () => {
                         <input className='p-4 mb-4' type='File' placeholder='Nombre' />
                     ) : (
                         <div></div>
-                    )}  <button class="bg-red-300 hover:bg-red-500 text-white font-bold self-center w-32 py-1 px-3 rounded-full shadow-lg hover:text-white shadow-white transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce"
+                    )}  <button class="bg-red-300 hover:bg-red-500  text-white font-bold self-center w-32 py-1 px-3 rounded-full  hover:shadow-2xl hover:shadow-slate-900 hover:text-white  transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce"
                         onClick={handleSolicitarClick}
                     >
                         solicitar
                     </button>
                 </div> 
-                <div className="flex flex-wrap h-full w-full justify-center overflow-y-auto gap-2 p-4">
-                 
+                <div className="flex  flex-wrap h-full w-full justify-center overflow-y-auto gap-2 p-4">
+                
                     {
                         solicitudesByDni && solicitudesByDni.length > 0 && solicitudesByDni.map(s => (
-                            <div className="flex flex-col h-1/2 w-1/4 bg-slate-200  rounded overflow-hidden shadow-xl p-4">
+                            <div className="flex flex-col h-1/2 w-1/4 bg-slate-200 shadow-slate-900 m-4 rounded overflow-hidden shadow-2xl p-4">
 
                                 <div className="gap-4 mb-4">
-                                    <h1 className="font-bold text-center text-2xl underline ">{s.categoriaSolicitud}({s.idsolicitudes})</h1>
-                                    <p className="text-gray-700 text-center text-xl">{formatDate(s.feachaSolicitado)}</p>
+                                    <h1 className=" font-sans uppercase text-center text-xl mb-8 ">{s.categoriaSolicitud}</h1>
+                                    {/* <h2 className='mt-2 mb-4' >Cantidad de Solicitudes: {s.idsolicitudes}</h2>      //solicitudes */}
+                                    <p className="text-gray-700 text-center text-xl mt-8">{formatDate(s.feachaSolicitado)}</p>
                                 </div>
                                 <div className="mt-auto  flex justify-center items-center">
-                                    <span className={` bg-gray-200 font-semi-bold rounded-full p-4 text-base text-black  ${s.estado === 2 ? 'bg-green-700' : s.estado === 3 ? 'bg-red-700' : 'bg-slate-500' }`}>Estado de la solicitud</span>
+                                <span className={`bg-gray-200 font-semi-bold rounded-full p-4 text-base text-white ${s.estado === 2 ? 'bg-green-700' : s.estado === 3 ? 'bg-red-700' : 'bg-slate-500'}`}>
+                                    {s.estado === 2 ? 'Aprobada' : s.estado === 3 ? 'Rechazada' : 'En proceso'}
+                                </span>
+
                                 </div>
                             </div>
                         ))

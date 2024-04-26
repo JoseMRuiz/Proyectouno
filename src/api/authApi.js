@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // const { VITE_API_URL } = getEnvVariables()
-const URL = 'http://localhost:4000/api'
-// const URL = 'http://acceso.nubecenter.com.ar:11702/api'
+//const URL = 'http://localhost:4000/api'
+const URL = 'http://acceso.nubecenter.com.ar:11710/api'
 
 const authApi = axios.create({
     baseURL: URL
