@@ -45,10 +45,10 @@ const VistaDatos = () => {
                 <Sidebar />
                 <div className=' rounded-tl-lg  flex flex-col justify-center items-center h-full w-full bg-gradient-to-r from-blue-800 via-blue-200 to-cyan-500'>
                     <TextField
-                        class='rounded-tl-2xl rounded-br-2xl mt-20 bg-slate-50'
+                        class='rounded-tl-2xl shadow-2xl shadow-slate-900 rounded-br-2xl mt-20 bg-slate-50'
                         hiddenLabel
                         id="filled-hidden-label-normal"
-                        defaultValue="ingrese el dni"
+                        defaultValue="Ingrese el Dni"
                         variant="filled"
                     />
                     <div className="w-full h-full p-4 overflow-y-auto ">
@@ -57,24 +57,25 @@ const VistaDatos = () => {
                                 solicitudes.solicitudes && solicitudes.solicitudes.length > 0 && solicitudes.solicitudes.map(s => (
                                     s.estado === 1 ? (
                                         <div className='bg-slate-200 min-w-1/2 rounded-xl shadow-lg w-full m-2'>
-                                        <div className='p-5 flex flex-col'>
+                                        <div className='p-5 shadow-2xl shadow-slate-900 flex flex-col'>
                                             <div className='rounded-xl overflow-hidden self-center'>
                                             </div>
-                                            <h5 className='text-2xl md:text-3xl font-medium '>{s.empleadoNombre}</h5>
-                                            <h5 className='text-2xl md:text-3xl font-medium '>{s.empleadoDni} </h5>
-                                            <p className='text-black text-lg '> {s.categoriaSolicitud}({s.idsolicitudes}) </p>
+                                            <h5 className='text-2xl md:text-xl  flex m-1 font-bold under '> Nombre y Apellido: <h6 className=' ml-4  font-normal text-black '>{s.empleadoNombre}</h6></h5>
+                                            <h5 className='text-2xl md:text-xl  flex m-1 font-bold under '> Documento: <h6 className=' ml-4 font-normal text-black '>{s.empleadoDni}</h6></h5>
+                                            <h5 className='text-2xl md:text-xl  flex m-1 font-bold under mb-4 '> Tipo de Solicitud: <h6 className=' ml-4 font-normal text-black'>{s.categoriaSolicitud}</h6></h5>
+
                                             <div className='flex'>
                                                 <button 
-                                                className='min-w-32 text-center bg-green-600 text-slate-600 py-2 rounded-lg font-semibold hover:bg-green-300 focus:scale-95 transition-all duration-200 ease-out' 
+                                                className='min-w-32 mr-6 text-center text-white bg-green-600  py-2 rounded-lg font-semibold hover:bg-green-300 focus:scale-95 transition-all duration-200 ease-out' 
                                                 onClick={ () => handleAceptar(s.idsolicitudes)}
                                                 > 
-                                                    Aceptar  
+                                                    Aprobar  
                                                 </button>
                                                 <button
-                                                className=' min-w-32 text-center bg-red-800 text-slate-600 py-2 rounded-lg font-semibold hover:bg-red-300 focus:scale-95 transition-all duration-200 ease-out'
+                                                className=' min-w-32 text-center text-white bg-red-800  py-2 rounded-lg font-semibold hover:bg-red-300 focus:scale-95 transition-all duration-200 ease-out'
                                                 onClick={ () => handleDenegar(s.idsolicitudes)}
                                                 >
-                                                    X
+                                                    Rechazar
                                                 </button>
                                             </div>
                                         </div>
