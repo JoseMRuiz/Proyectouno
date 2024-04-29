@@ -7,6 +7,7 @@ import VistaDatos from './components/VistaDatos'
 import Usuario from './components/Usuario'
 import { store } from './store/store'
 import { useAuth } from './hooks/useAuth'
+import Registro from './components/Registro'
 
 function App() {
   // const status = "authenticated"
@@ -35,6 +36,7 @@ function App() {
                   <Route path='Form' element={<Form />} />
                   <Route path='VistaDatos' element={<VistaDatos />} />
                   <Route path='Usuario' element={<Usuario />} />
+                  <Route path='Registro' element={<Registro />} />
                 </>
               )
           }
