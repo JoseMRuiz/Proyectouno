@@ -42,13 +42,13 @@ function Loginn() {
                         <div class="w-full ">
                             <img src="/src/images/logotribunal.jpg" className=' m-auto rounded-xl text-center '/>
                             <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Ingresar</h1>
-                            <form class="mt-6" action="#" method="POST">
+                            <form class="mt-6" action="#" onSubmit={loginSubmit}>
                                 <div>
                                     
-                                <input type="text" placeholder='email' className='w-64 m-auto rounded-lg bg-slate-600'/>
+                                <input type="text" placeholder='email' onChange={onLoginInputChange} name='loginEmail' value={loginEmail} className='w-64 m-auto rounded-lg bg-slate-600'/>
                                 </div>
                                 <div class="mt-4">
-                                <input type="text" placeholder='contraseña' className='w-64 m-auto rounded-lg bg-slate-600'/>
+                                <input type="text" placeholder='contraseña' name='loginPassword' value={loginPassword} onChange={onLoginInputChange} className='w-64 m-auto rounded-lg bg-slate-600'/>
                                 </div>
                                 <div class="text-right mt-2">
                                     <a href="#" class="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">Olvido su contraseña?</a>
