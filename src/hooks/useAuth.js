@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import authApi from '../api/authApi';
 import { onChecking, onLogin, onLogout } from '../store/auth/authSlice';
+import { SiWalkman } from 'react-icons/si';
 
 export const useAuth = () => {
     const { status, user, errorMessage } = useSelector(state => state.auth)
@@ -10,14 +11,14 @@ export const useAuth = () => {
         dispatch(onChecking());
         try {
             const { data } = await authApi.post('/auth/login', { email, password })
-            console.log(data)
+           
             if (data.ok === true) {
                 dispatch(onLogin({ email: data.email, password: data.clave, nombre: data.nombre, apellido: data.apellido, dni: data.dni, rol: data.rol }))
-                
-                }
+                } 
             //!TODO
             //Manejar el caso: "Usuario no encontrado"
         } catch (error) {
+            alert("Error en credenciales");
             setTimeout(() => {
                 dispatch(onLogout('Credenciales incorrectas'));
             }, 10);
@@ -25,7 +26,6 @@ export const useAuth = () => {
     }
 
     const startLogout = () => {
-        localStorage.clear();
         dispatch(onLogout())
     }
 

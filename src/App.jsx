@@ -8,23 +8,18 @@ import Usuario from './components/Usuario'
 import { store } from './store/store'
 import { useAuth } from './hooks/useAuth'
 import Registro from './components/Registro'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 function App() {
-  useEffect(() => {
-    if(localStorage.getItem('email') && localStorage.getItem('email').length > 0 ){
-      console.log('Existe')
-    } else {
-      
-      console.log(localStorage.getItem('email'))
-    }
-  },[localStorage.getItem('email')] )
+  const { user } = useSelector(state => state.auth)
+  
   return (
     <div className='h-screen w-full'>
       <BrowserRouter>
         <Routes>
           {
-            (localStorage.getItem('email') === null || localStorage.getItem('email').length === 0 )
+            (localStorage.getItem('email') === null )
 
               ? (
                 <>
