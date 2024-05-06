@@ -4,6 +4,8 @@ import Sidebar from './Sidebar';
 import authApi from '../api/authApi';
 import { useSelector } from 'react-redux';
 import { useSolicitudes } from '../hooks/useSolicitudes';
+import FaltaConAviso from './Options/FaltaConAviso';
+import SelectorFecha from './datePickers/DatePicker';
 const Form = () => {
     const [selectedOption, setSelectedOption] = useState('');
     const [dni, setDni] = useState(null);
@@ -11,6 +13,27 @@ const Form = () => {
     const { user } = useSelector(state => state.auth)
     const { solicitudesByDni } = useSelector(state => state.solicitudes)
     const [cardCount, setCardCount] = useState(0);
+    //*Manejo estado dia/mes/anio para la solicitud
+    const [dia, setDia] = useState(null)
+    const [mes, setMes] = useState(null)
+    const [anio, setAnio] = useState(null)
+    const [diaFin, setDiaFin] = useState(null)
+    const [mesFin, setMesFin] = useState(null)
+    const [anioFin, setAnioFin] = useState(null)
+
+    const handleFechaChange = (dia, mes, anio) => {
+        setDia(dia);
+        setMes(mes);
+        setAnio(anio);
+        console.log(dia, mes, anio)
+      };
+      const handleFechaChangeFin = (dia, mes, anio) => {
+        setDiaFin(dia);
+        setMesFin(mes);
+        setAnioFin(anio);
+        console.log(dia, mes, anio)
+      };
+    
 
     const { fetchByDni } = useSolicitudes()
 
@@ -29,7 +52,7 @@ const Form = () => {
 
             console.log(user)
             const response = await authApi.post('/solicitudes/', {
-                dni: user.dni, categoriaSolicitud: selectedOption, empleado: user
+                dni: user.dni, categoriaSolicitud: selectedOption, empleado: user, dia: dia, mes:mes, anio:anio, diaFin: diaFin, mesFin: mesFin, anioFin: anioFin
             })
 
             fetchByDni(user.dni)
@@ -41,7 +64,6 @@ const Form = () => {
     const isSolicitudAceptada = true;
 
     const formatDate = (fecha) => {
-        console.log(fecha)
         const date = new Date(fecha);
         const day = date.getDate();
         const month = date.getMonth() + 1; // Los meses comienzan desde 0
@@ -89,11 +111,32 @@ const Form = () => {
                         <option value="permisos autorizados">Permisos autorizados</option>
                         <option value="duelo">Duelo</option>
                     </select>
+                    {(
+                        selectedOption !== 'falta con aviso' ? (
+                            null
+                        ): (
+                            <div className='flex'>
+                                <SelectorFecha onFechaChange={handleFechaChange}/>
+                            </div>
+                        )
+                    )}
+                    {(
+                        selectedOption !== 'permisos autorizados' ? (
+                            null
+                        ): (
+                            <div className='flex justify-around items-center p-4'>
+                                <SelectorFecha onFechaChange={handleFechaChange}/>
+                                <h3>Hasta</h3>
+                                <SelectorFecha onFechaChange={handleFechaChangeFin}/>
+                            </div>
+                        )
+                    )}
                     {(selectedOption !== '' && selectedOption !== 'falta con aviso' && selectedOption !== 'duelo') ? (
                         <input className='p-4 mb-4' type='File' placeholder='Nombre' />
                     ) : (
                         <div></div>
-                    )}  <button class="bg-red-300 hover:bg-red-500  text-white font-bold self-center w-32 py-1 px-3 rounded-full  hover:shadow-2xl hover:shadow-slate-900 hover:text-white  transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce"
+                    )}  
+                    <button class="bg-red-300 hover:bg-red-500  text-white font-bold self-center w-32 py-1 px-3 rounded-full  hover:shadow-2xl hover:shadow-slate-900 hover:text-white  transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce"
                         onClick={handleSolicitarClick}
                     >
                         solicitar
