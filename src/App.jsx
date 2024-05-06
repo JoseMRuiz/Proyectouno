@@ -8,17 +8,23 @@ import Usuario from './components/Usuario'
 import { store } from './store/store'
 import { useAuth } from './hooks/useAuth'
 import Registro from './components/Registro'
+import { useEffect } from 'react'
 
 function App() {
-  // const status = "authenticated"
-  const { status } = useAuth();
-  // const authStatus = 'not-authenticated' // "authenticated" // "checking" 
+  useEffect(() => {
+    if(localStorage.getItem('email') && localStorage.getItem('email').length > 0 ){
+      console.log('Existe')
+    } else {
+      
+      console.log(localStorage.getItem('email'))
+    }
+  },[localStorage.getItem('email')] )
   return (
     <div className='h-screen w-full'>
       <BrowserRouter>
         <Routes>
           {
-            (status === 'no-authenticated' || status === 'checking')
+            (localStorage.getItem('email') === null || localStorage.getItem('email').length === 0 )
 
               ? (
                 <>
@@ -42,12 +48,6 @@ function App() {
           }
 
         </Routes>
-        {/* <Routes>
-            
-            
-  
-  
-          </Routes> */}
       </BrowserRouter>
     </div >
 

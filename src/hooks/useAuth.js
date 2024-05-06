@@ -13,7 +13,8 @@ export const useAuth = () => {
             console.log(data)
             if (data.ok === true) {
                 dispatch(onLogin({ email: data.email, password: data.clave, nombre: data.nombre, apellido: data.apellido, dni: data.dni, rol: data.rol }))
-            }
+                
+                }
             //!TODO
             //Manejar el caso: "Usuario no encontrado"
         } catch (error) {

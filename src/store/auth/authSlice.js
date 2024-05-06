@@ -17,11 +17,16 @@ export const authSlice = createSlice({
             state.status = 'authenticated';
             state.user = payload;
             state.errorMessage = undefined;
+            console.log(payload.email)
+            localStorage.setItem('email', payload.email)
+            
+    // localStorage.setItem('miValor', newValue);
         },
         onLogout: (state, { payload }) => {
             state.status = 'no-authenticated'
             state.user = {};
             state.errorMessage = payload
+            localStorage.removeItem('email')
         },
     }
 });
