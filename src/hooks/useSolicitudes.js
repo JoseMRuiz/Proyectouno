@@ -1,6 +1,7 @@
 import authApi from "../api/authApi";
 import { useDispatch, useSelector } from 'react-redux';
 import { onCarga, onCargaByDni } from "../store/solicitudes/solicitudesSlice";
+import Swal from "sweetalert2";
 
 export const useSolicitudes = () => {
     const dispatch = useDispatch()
@@ -23,8 +24,35 @@ export const useSolicitudes = () => {
         }
     }
 
+    const postFaltaConAviso = async ({ dni, categoriaSolicitud, empleado, dia, mes, anio }) => {
+        try {
+            console.log('------Falta con aviso------')
+            const { data } = await authApi.post(`/solicitudes/falta-con-aviso/${dni}`, {
+                dni, categoriaSolicitud, empleado, dia, mes, anio
+            })
+            console.log(data)
+            if (data.ok === true) {
+                Swal.fire({
+                    title: "Realizado correctamente",
+                    text: data.msg,
+                    icon: "success"
+                });
+            } else {
+                Swal.fire({
+                    title: data.msg,
+                    icon: "error"
+                });
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+
     return {
         fetchSolicitudes,
-        fetchByDni
+        fetchByDni,
+        postFaltaConAviso
     }
 }

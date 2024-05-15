@@ -12,14 +12,15 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 function App() {
-  const { user } = useSelector(state => state.auth)
+  const { status } = useAuth();
   
   return (
     <div className='h-screen w-full'>
       <BrowserRouter>
         <Routes>
           {
-            (localStorage.getItem('email') === null )
+            // (localStorage.getItem('email') === null )
+            (status === 'no-authenticated' || status === 'checking')
 
               ? (
                 <>

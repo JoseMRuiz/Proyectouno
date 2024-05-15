@@ -38,6 +38,14 @@ const VistaDatos = () => {
         }
 
     }
+    const formatDate = (fecha) => {
+        const date = new Date(fecha);
+        const day = date.getDate();
+        const month = date.getMonth() + 1; // Los meses comienzan desde 0
+        const year = date.getFullYear();
+        return `${day < 10 ? '0' : ''}${day}-${month < 10 ? '0' : ''}${month}-${year}`;
+    };
+
 
     return (
         <>
@@ -63,6 +71,8 @@ const VistaDatos = () => {
                                             <h5 className='text-2xl md:text-xl  flex m-1 font-bold under '> Nombre y Apellido: <h6 className=' ml-4  font-normal text-black '>{s.empleadoNombre}</h6></h5>
                                             <h5 className='text-2xl md:text-xl  flex m-1 font-bold under '> Documento: <h6 className=' ml-4 font-normal text-black '>{s.empleadoDni}</h6></h5>
                                             <h5 className='text-2xl md:text-xl  flex m-1 font-bold under mb-4 '> Tipo de Solicitud: <h6 className=' ml-4 font-normal text-black'>{s.categoriaSolicitud}</h6></h5>
+                                            <h5 className='text-2xl md:text-xl  flex m-1 font-bold under mb-4 '> Solicitado el: <h6 className=' ml-4 font-normal text-black'>{formatDate(s.feachaSolicitado)}</h6></h5>
+                                            <h5 className='text-2xl md:text-xl  flex m-1 font-bold under mb-4 '> Para la fecha: <h6 className=' ml-4 font-normal text-black'>{s.diaSolicitado}-{s.mesSolicitado}-{s.anioSolicitado}</h6></h5>
 
                                             <div className='flex'>
                                                 <button 

@@ -6,22 +6,23 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { useState } from 'react';
 
-const newTheme = (theme) => createTheme({
-    ...theme,
-    components: {
-      MuiTextField: {
-        styleOverrides: {
-          root: {
-            color:'#00000',
-            borderRadius: '2px',
-            borderWidth: '1px',
-            backgroundColor: '#FFFFFF',
-          }
-        }
-      }
-    }
-  })
+const baseTheme = createTheme(); // Tema base que puede ser modificado
 
+const newTheme = createTheme({
+  ...baseTheme,
+  components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          color: '#000000', // Asegúrate de que este es el color correcto
+          borderRadius: '2px',
+          borderWidth: '1px',
+          backgroundColor: '#FFFFFF',
+        },
+      },
+    },
+  },
+});
 
 
 const SelectorFecha =({ onFechaChange }) => {
