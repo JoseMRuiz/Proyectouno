@@ -11,7 +11,7 @@ const EmptyUser = {
 export const UserKey = 'user';
 
 export const persistLocalStorage = (key, value) => {
-    console.log(key, value)
+    console.log("persistLocalStorage", key, value)
     localStorage.setItem(key, JSON.stringify({ ...value }));
 }
 
@@ -24,7 +24,7 @@ export const authSlice = createSlice({
     initialState: {
         // status: 'checking', // authenticaded, not-authenticated
         status: localStorage.getItem('user') ? 'authenticaded' : 'not-authenticated',
-        user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : EmptyUser,
+        user: localStorage.getItem(UserKey) ? JSON.parse(localStorage.getItem(UserKey)) : EmptyUser,
         errorMessage: undefined
     },
     reducers: {
@@ -36,7 +36,9 @@ export const authSlice = createSlice({
         onLogin: (state, { payload }) => {
             state.status = 'authenticated';
             state.errorMessage = undefined;
-           persistLocalStorage(UserKey, payload)
+            state.user = payload
+            console.log("onLogin payload", payload)
+            persistLocalStorage(UserKey, payload)
         },
         onLogout: (state, { payload }) => {
             state.status = 'no-authenticated'

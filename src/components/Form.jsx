@@ -40,7 +40,7 @@ const Form = () => {
   useEffect(() => {
     fetchByDni(user.dni);
     console.log(solicitudesByDni);
-  }, []);
+  }, [solicitudesByDni]);
 
   const handleSelectChange = (e) => {
     setSelectedOption(e.target.value);
