@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'MiFuentePersonalizada';
+    src:url('../src/assets/Font/Anton-Regular.ttf') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MiFuentePersonalizada2';
+    src:url('../src/assets/Font/PermanentMarker-Regular.ttf') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}

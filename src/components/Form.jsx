@@ -124,20 +124,29 @@ const Form = () => {
               disabled
             />
           </h6>
+          <h1 className=" font-personalizada text-center mb-2 mt-2">TIPO DE SOLICITUD</h1>
           <select className="p-4 mb-4" onChange={handleSelectChange}>
             <option value="">Seleccione una opción</option>
             <option value="carpeta médica">Carpeta médica</option>
-            <option value="falta con aviso">Falta con aviso</option>
-            <option value="carp.medica x atención fliar">
-              Carp. médica x atención familiar
-            </option>
-            <option value="permisos autorizados">Permisos autorizados</option>
-            <option value="duelo">Duelo</option>
+            <option value="justificacion de inasistencia por motivos personales">justificacion de inasistencia por motivos personales</option>
+            <option value="Lic. por Examen">Lic. por Examen</option>
+            <option value="Lic. por Capacitacion">Lic. por Capacitacion</option>
+            <option value="Matrimonio">Matrimonio</option>
+            <option value="Fallecimiento Familiar">Fallecimiento Familiar</option>
           </select>
-          {selectedOption !== "falta con aviso" ? null : (
-            <div className="flex">
-              <SelectorFecha onFechaChange={handleFechaChange} />
-            </div>
+          {selectedOption !== "carpeta médica" ? null : (
+            <select >
+              <option value="">Licencia Oncologica</option>
+              <option value="">Atencion Familiar</option>
+              <option value="">Ley Martina ??</option>
+              <option value="">Paternidad</option>
+              <option value="">Maternidad</option>
+              <option value="">Lactancia</option>
+              <option value="">Estudios Ginecologicos</option>
+              <option value="">Ley Proteccion integral de personas transplantadas</option>
+              <option value="">Estudio anual de prostata</option>
+            </select>
+            
           )}
           {selectedOption !== "permisos autorizados" ? null : (
             <div className="flex justify-around items-center p-4">

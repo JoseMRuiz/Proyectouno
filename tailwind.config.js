@@ -6,9 +6,13 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage:{
-        'fondo1':"url('/my-project/src/images/fondo1.jpg')",
-      }
+      fontFamily: {
+        personalizada: ['MiFuentePersonalizada', 'sans-serif'],
+        personalizada2: ['MifuentePersonalizada2', 'sans-serif'],
+      },
+      backgroundImage: {
+        'fondo1': "url('/my-project/src/images/fondo1.jpg')",
+      },
     },
   },
   plugins: [],
