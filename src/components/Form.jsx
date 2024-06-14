@@ -3,6 +3,8 @@ import logotc from "../images/logotc.png";
 import Sidebar from "./Sidebar";
 import authApi from "../api/authApi";
 import { useSelector } from "react-redux";
+import { FaFilePdf } from "react-icons/fa";
+import pdfFile from "../assets/Pdf/PDF-justificacion de inasistencia.pdf";
 import { useSolicitudes } from "../hooks/useSolicitudes";
 // import FaltaConAviso from './Options/FaltaConAviso';
 import SelectorFecha from "./datePickers/DatePicker";
@@ -134,11 +136,10 @@ const Form = () => {
             <option value="Matrimonio">Matrimonio</option>
             <option value="Fallecimiento Familiar">Fallecimiento Familiar</option>
           </select>
-          {selectedOption !== "carpeta médica" ? null : (
-            <select >
+          {selectedOption === "carpeta médica" ?  (
+            <select className="p-4 mb-4" >
               <option value="">Licencia Oncologica</option>
               <option value="">Atencion Familiar</option>
-              <option value="">Ley Martina ??</option>
               <option value="">Paternidad</option>
               <option value="">Maternidad</option>
               <option value="">Lactancia</option>
@@ -147,21 +148,30 @@ const Form = () => {
               <option value="">Estudio anual de prostata</option>
             </select>
             
-          )}
-          {selectedOption !== "permisos autorizados" ? null : (
-            <div className="flex justify-around items-center p-4">
-              <SelectorFecha onFechaChange={handleFechaChange} />
-              <h3>Hasta</h3>
-              <SelectorFecha onFechaChange={handleFechaChangeFin} />
+          ) : null}
+          {(selectedOption === "Matrimonio" || selectedOption === "Lic. por Examen" || selectedOption === "Lic. por Capacitacion")?   (
+            
+              
+                <div className="flex justify-around items-center p-4">
+                    <SelectorFecha onFechaChange={handleFechaChange} />
+                    <h1 className="m-16">Hasta</h1>
+                    <SelectorFecha onFechaChange={handleFechaChangeFin} />
+                </div>    
+                  
+              
+            
+            
+          ): null}
+          {selectedOption === "justificacion de inasistencia por motivos personales" ?  (
+            <div className="flex">
+              <input type="text" placeholder="ingrese su motivo" className=" w-5/6 p-3 mb-4 rounded-2xl" />
+              <a href={pdfFile} download="PDF-justificacion de inasistencia.pdf" className="p-4 ml-4"> <FaFilePdf /> Descargar PDF</a>
+
+
             </div>
-          )}
-          {selectedOption !== "" &&
-          selectedOption !== "falta con aviso" &&
-          selectedOption !== "duelo" ? (
-            <input className="p-4 mb-4" type="File" placeholder="Nombre" />
-          ) : (
-            <div></div>
-          )}
+            
+            
+          ) : null}
           <button
             class="bg-red-300 hover:bg-red-500  text-white font-bold self-center w-32 py-1 px-3 rounded-full  hover:shadow-2xl hover:shadow-slate-900 hover:text-white  transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce"
             onClick={handleSolicitarClick}
