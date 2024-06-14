@@ -8,6 +8,7 @@ import pdfFile from "../assets/Pdf/PDF-justificacion de inasistencia.pdf";
 import { useSolicitudes } from "../hooks/useSolicitudes";
 // import FaltaConAviso from './Options/FaltaConAviso';
 import SelectorFecha from "./datePickers/DatePicker";
+import LicenciaExamen from "./Categorias/LicenciaExamen";
 const Form = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [dni, setDni] = useState(null);
@@ -24,12 +25,7 @@ const Form = () => {
   const [anioFin, setAnioFin] = useState(null);
   const { postFaltaConAviso } = useSolicitudes();
 
-  const handleFechaChange = (dia, mes, anio) => {
-    setDia(dia);
-    setMes(mes + 1);
-    setAnio(anio);
-    console.log(dia, mes, anio);
-  };
+
   const handleFechaChangeFin = (dia, mes, anio) => {
     setDiaFin(dia);
     setMesFin(mes + 1);
@@ -42,7 +38,7 @@ const Form = () => {
   useEffect(() => {
     fetchByDni(user.dni);
     console.log(solicitudesByDni);
-  }, [solicitudesByDni]);
+  }, []);
 
   const handleSelectChange = (e) => {
     setSelectedOption(e.target.value);
@@ -149,23 +145,15 @@ const Form = () => {
             </select>
             
           ) : null}
+
           {(selectedOption === "Matrimonio" || selectedOption === "Lic. por Examen" || selectedOption === "Lic. por Capacitacion")?   (
-            
-              
-                <div className="flex justify-around items-center p-4">
-                    <SelectorFecha onFechaChange={handleFechaChange} />
-                    <h1 className="m-16">Hasta</h1>
-                    <SelectorFecha onFechaChange={handleFechaChangeFin} />
-                </div>    
-                  
-              
-            
-            
+            <LicenciaExamen/>
           ): null}
+
           {selectedOption === "justificacion de inasistencia por motivos personales" ?  (
             <div className="flex">
               <input type="text" placeholder="ingrese su motivo" className=" w-5/6 p-3 mb-4 rounded-2xl" />
-              <a href={pdfFile} download="PDF-justificacion de inasistencia.pdf" className="p-4 ml-4"> <FaFilePdf /> Descargar PDF</a>
+              <a href={pdfFile} download="PDF-justificacion de inasistencia.pdf" className="p-4 ml-4"> <FaFilePdf className="w-20 h-20" /> Descargar PDF</a>
 
 
             </div>
