@@ -8,7 +8,7 @@ const Inicio = () => {
                 <div className='w-full h-96 shadow-2xl shadow-slate-900  max-h-full'>
                     <div className='bg-slate-200 w-full h-full rounded-xl p-2  shadow-lg flex flex-col justify-center items-center'>
                         <img src="/src/images/form.png" className='w-72  p-2 rounded-xl ' />
-                        <h5 className='text-2xl md:text-3xl font-medium'>Solicitar Formulario</h5>
+                        <h5 className='text-2xl md:text-3xl font-medium'>Realizar Solicitud</h5>
                         <p className='text-slate-800 text-lg text-center p-2 '> Ingrese al formulario para solicitar o informar su inasistencia</p>
                         <Link to="/Form"><button className='text-center  p-4  mt-2 bg-blue-400 text-blue-700  rounded-lg font-semibold hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out'> Ir a Formulario  </button></Link>
                     </div>

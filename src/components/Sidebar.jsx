@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import { RiBookmarkFill, RiHome2Fill, RiMailFill, RiUser3Fill, RiLogoutBoxFill } from "react-icons/ri";
 import { useAuth } from "../hooks/useAuth";
 import { useSelector } from "react-redux";
+import Solicitudes from "./Solicitudes";
 
 const SidebarContext = createContext()
 
@@ -56,6 +57,11 @@ export default function Sidebar({ children }) {
                         <Link to="/Pantalla_postLogin" className={`flex rounded p-2 gap-2 text-xl cursor-pointer stroke-[0.75]   stroke-neutral-400 text-neutral-950  place-items-center  hover:bg-blue-100 transition-color duration-100 ${expanded ? 'w-full' : 'w-20'}`}>
                             <RiHome2Fill className={`${expanded ? "" : "w-full h-7"}`} />
                             <p className={`tracking-wide ${expanded ? "w-full" : "w-0"}`}>{expanded ? 'Inicio' : ''}</p>
+
+                        </Link>
+                        <Link to="/Solicitudes" className={`flex rounded p-2 gap-2 text-xl cursor-pointer stroke-[0.75]   stroke-neutral-400 text-neutral-950  place-items-center  hover:bg-blue-100 transition-color duration-100 ${expanded ? 'w-full' : 'w-20'}`}>
+                            <RiHome2Fill className={`${expanded ? "" : "w-full h-7"}`} />
+                            <p className={`tracking-wide ${expanded ? "w-full" : "w-0"}`}>{expanded ? 'Solicitud tabla' : ''}</p>
 
                         </Link>
                         <Link to="/Form" className={`flex rounded p-2 gap-2 text-xl cursor-pointer stroke-[0.75]  stroke-neutral-400 text-neutral-950  place-items-center  hover:bg-blue-100 transition-color duration-100 ${expanded ? 'w-full' : 'w-20'}`}>

@@ -185,7 +185,7 @@ const Form = () => {
                         ? "bg-green-700"
                         : s.estado === 3
                         ? "bg-red-700"
-                        : "bg-slate-500"
+                        : "bg-yellow-600"
                     }`}
                   >
                     {s.estado === 2

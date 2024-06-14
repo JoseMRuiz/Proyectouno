@@ -10,6 +10,7 @@ import { useAuth } from './hooks/useAuth'
 import Registro from './components/Registro'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import Solicitudes from './components/Solicitudes'
 
 function App() {
   const { status } = useAuth();
@@ -39,6 +40,7 @@ function App() {
                   <Route path='VistaDatos' element={<VistaDatos />} />
                   <Route path='Usuario' element={<Usuario />} />
                   <Route path='Registro' element={<Registro />} />
+                  <Route path='Solicitudes' element={<Solicitudes />} />
                 </>
               )
           }
